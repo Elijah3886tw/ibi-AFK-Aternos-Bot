@@ -1,5 +1,31 @@
 "use strict";
+// 1. 先引入 express 並建立網頁伺服器（新加入的）
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 10000;
 
+app.get('/', (req, res) => {
+  res.send('機器人運作中！');
+});
+
+app.listen(PORT, () => {
+  console.log(`Web Service 正在監聽連接埠 ${PORT}`);
+});
+
+
+// 2. 這裡底下保留你「原本就有的」Mineflayer 程式碼（不用動它）
+const mineflayer = require('mineflayer');
+
+const bot = mineflayer.createBot({
+  host: 'Elijah3888_tw.aternos.me',
+  port: 42181, // 記得每次開伺服器要確認這個 Port 對不對
+  username: '你的機器人名字'
+});
+
+// 你原本寫的其他 bot.on(...) 事件也通通留在這下面...
+bot.on('spawn', () => {
+  console.log('機器人成功進入伺服器！');
+});
 const { addLog, getLogs } = require("./logger");
 const mineflayer = require("mineflayer");
 const { Movements, pathfinder, goals } = require("mineflayer-pathfinder");
