@@ -1,25 +1,5 @@
 "use strict";
-const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 10000;
 
-// 這是給 Render 檢查用的網頁首頁
-app.get('/', (req, res) => {
-  res.send('ibi-AFK-Aternos-Bot 正在運行中！');
-});
-
-// 啟動網頁伺服器，監聽 Render 指定的 10000 連接埠
-app.listen(PORT, () => {
-  console.log(`網頁伺服器成功監聽連接埠：${PORT}`);
-});
-const { addLog, getLogs } = require("./logger");
-const mineflayer = require("mineflayer");
-const { Movements, pathfinder, goals } = require("mineflayer-pathfinder");
-const { GoalBlock } = goals;
-const config = require("./settings.json");
-const express = require("express");
-const http = require("http");
-const https = require("https");
 
 // ============================================================
 // EXPRESS SERVER - Keep Render/Aternos alive
