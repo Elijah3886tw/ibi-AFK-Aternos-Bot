@@ -1,5 +1,13 @@
 "use strict";
 
+const { addLog, getLogs } = require("./logger");
+const mineflayer = require("mineflayer");
+const { Movements, pathfinder, goals } = require("mineflayer-pathfinder");
+const { GoalBlock } = goals;
+const config = require("./settings.json");
+const express = require("express");
+const http = require("http");
+const https = require("https");
 
 // ============================================================
 // EXPRESS SERVER - Keep Render/Aternos alive
